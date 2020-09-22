@@ -22,6 +22,8 @@ mod tests {
     #[test]
     fn expr() {
         assert_eq!(grammar::ExprParser::new().parse("2 + 3 * 4"), Ok(14));
+        assert_eq!(grammar::ExprParser::new().parse("(2 + 3) * 4"), Ok(20));
         assert_eq!(grammar::ExprParser::new().parse("6 / 2 * 3"), Ok(9));
+        assert_eq!(grammar::ExprParser::new().parse("(1 + ((2 * 3) - (5 / 4)))"), Ok(6));
     }
 }
